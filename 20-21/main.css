@@ -1,0 +1,22 @@
+*{
+	margin:0;
+	padding:0;
+}
+
+.form-control{
+	display:none;
+}
+
+.content{
+	width:600px;
+	margin:20px auto;
+	position:relative;
+}
+
+.thumbnail{
+	position:absolute;
+	background-image:url(./image/banner.jpg);
+	background-repeat:no-repeat;
+	width:480px;
+	height:500px;
+}
