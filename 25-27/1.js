@@ -99,13 +99,12 @@ function day_change(y,m){
 }
 
 function timeSpan(date){
-
-
 	timeSpan[0]=new Date().getTime()-date.getTime();
-	timeSpan[1]=Math.abs(timeSpan[0])/(24*60*60*1000);//天
-	timeSpan[2]=(Math.abs(timeSpan[0])%(24*60*60*1000))/(60*60*1000);//时
-	timeSpan[3]=Math.abs(timeSpan[0])%(60*60*1000)/(60*1000);//分
-	timeSpan[4]=Math.abs(timeSpan[0])%(60*1000)/1000;//秒
+	var bcs=Math.abs(timeSpan[0]);
+	timeSpan[1]=parseInt(bcs/(24*60*60*1000));//天
+	timeSpan[2]=parseInt(bcs%(24*60*60*1000)/(60*60*1000));//时
+	timeSpan[3]=parseInt(bcs%(60*60*1000)/(60*1000));//分
+	timeSpan[4]=parseInt(bcs%(60*1000)/1000);//秒
 	return timeSpan;
 }
 
@@ -130,7 +129,7 @@ function on_change(){
 	result_word[2]=timeSpan[0]>=0?"已经过去":"还有";
 	result_word[3]=timeSpan[0]+"天"+timeSpan[1]+"小时"+timeSpan[2]+"分"+timeSpan[3]+"秒";
 
-	result.innerHTML=result_word.join();
+	result.innerHTML=result_word.join("");
 }
 
 
