@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="">
+
+	<!-- <script type="text/javascript">
+		mood="about 5'10\" tall";
+		age="33";
+
+		alert(mood);
+		alert(age);
+
+		var paras=document.getElementsByClassName("warpper");  
+		var width=paras.getAttribute("width"); 
+		alert(width);
+	</script> -->
+		
+	
+	<style type="text/css">
+		*{
+			margin:0;
+			padding:0;
+		}
+		.warpper{
+			width:892px;
+			height: 1386px;
+			padding:0px 44px;
+			position: relative;
+		}
+		.header{
+			position: relative;
+			width:892px; 
+			height: 61px;
+			border-bottom:2px solid #938e8c;
+			
+		}
+		.header span{
+			font-size: 12px;
+			font-family:黑体;
+			line-height: 1.5;
+		}
+		.headtitle{
+			width:110px;
+			height: 61px;
+			background-color: #d45d5c;
+		}
+		.headtitle>span{
+			position:absolute;
+			left:2px;
+			bottom:0px;
+			color:#fff;
+		}
+		.date{
+			position: absolute;
+			right:0;
+			bottom:0;
+			color:#d45d5c;
+		}
+
+
+		.first{
+			position: relative;
+			margin:30px 0 30px 0;
+
+		}
+		.first-pic{
+			width:641px;
+			height: 301px;
+			position: relative;
+			margin-right: 49px;
+			background: url(./pic/1.jpg) no-repeat 0 0;
+		}
+		.first-pic img{
+			
+		}
+		.mask{
+			position: absolute;
+			top:0;
+			width:191px;
+			height: 301px;
+			opacity: 0.7;
+		}
+		.leftmask{
+			left:0;
+			background-color: #418c59;
+		}
+		.rightmask{
+			right: 0;
+			background-color: #cc7680;
+			
+		}
+
+		.first-article{
+			position: absolute;
+			top:0;
+			right: 0;
+			width:203px;
+			border-top:2px solid #cc8091;
+		}
+
+		.first-article-title {
+			font-size: 24px;
+			color:#000;
+			font-family: 微软雅黑;
+		}
+
+		.first-article p{
+			font-size: 12px;
+			color:#676767;
+			font-family: 楷体;
+			margin-bottom: 15px;
+		}
+
+		.numberone{
+			font-size: 116px;
+			color:#418c59;
+			font-family: 微软雅黑;
+			line-height: 1;
+		}
+
+		.numbertwo{
+			line-height: 1.2;
+			font-size: 55px;
+			color:#cc8091;
+			font-family: 微软雅黑;
+		}
+
+		.second {
+			overflow: hidden;
+			margin-bottom: 25px;
+		}
+		.second ul li{
+			float:left;
+			list-style: none;
+			width:190px;
+			margin-right:16px;
+		}
+		.second  h5{
+			font-size: 16px;
+			font-weight: bold;
+		}
+		.second p{
+			font-size: 12px;
+			line-height:1.5;
+			font-family: 宋体;
+		}
+		.what {
+			color:#418c59;
+		}
+		.when{
+			color:#d2994f;
+		}
+		.how{
+			color:#cc7680;
+		}
+		.third{
+			overflow: hidden;
+			margin-bottom: 40px;
+		}
+		.third>div{
+			display: inline-block;
+		}
+
+
+		.leftdiv{
+			margin-right: 12px;
+			width:415px;
+
+		}
+		.third-title {
+			font-size:42px;
+			color:#11456b;
+			font-family: 黑体;
+			font-weight: bold;
+			line-height: 45px;
+
+		}
+		.third-title em{
+			font-size: 72px;
+			color:#f5e327;
+			margin-right:12px;
+		}
+		.third-title2{
+			font-size: 33px;
+			color:#11456b;
+
+
+			display: block;
+			border-bottom:2px solid;
+			line-height: 1.5;
+			padding-bottom: 8px;
+			margin-bottom:14px;
+		}
+		
+
+		.leftdiv p{
+			font-size:12px;
+			color:#767777;
+			font-family: 宋体;
+			line-height: 1.5;
+
+			position: relative;
+
+
+		}
+		.third-p-font{
+			font-size:70px;
+			color:#f5e327;
+			font-family: 微软雅黑;
+			float:left;
+			line-height: 1.0;
+			margin:0px 3px 3px 0px;
+		}
+		.leftdiv img{
+			width:180px;
+			float:right;
+			margin:20px 0px 20px 20px;
+		}
+
+		.rightdiv{
+			float:right;
+			width:458px;
+
+		}
+		.rightdiv-imgdiv {
+			position: relative;
+			background:url("./pic/1.jpg") no-repeat 0 0;
+			width:458px;
+			height: 275px;
+
+			margin-bottom:30px;
+		}
+		
+		.rightdiv-mask{
+			opacity: 0.7;
+			width:458px;
+			height:61px;
+			background-color: #000;
+
+
+
+			vertical-align: middle;
+
+			position: absolute;
+			bottom:0;
+			left:0;
+		}
+		.rightdiv-mask h2{
+			font-size: 26px;
+			color:#ffffff;
+			line-height: 44px;
+
+			margin:8px 0px 0px 30px;
+
+			border-left:3px solid #72b16a;
+			padding-left:21px;
+			
+			display: inline-block;
+
+			opacity: 1;
+		}
+		.rightdiv-mask em{
+			color:#72b16a;
+			font-family: 微软雅黑;
+			letter-spacing: 1.4;
+			opacity: 1;
+		}
+
+		.rightdiv-chapter{
+			width:459px;
+			height:318px;
+			background-color: #eeeed6;
+
+			position: relative;
+
+		}
+		.rightdiv-chapter>p{
+			position: absolute;
+			bottom:30px;
+			right:10px;
+
+			display: block;
+			width:160px;
+			height: 160px;
+
+
+			font-size:14px;
+			color:#5a5b5b;
+			font-family:  黑体;
+			font-style:italic;
+		}
+		.rightdiv-chapter>p>span{
+			font-size: 72px;
+			color:#d45d5c;
+			font-family: 黑体;
+			line-height: 1.0;
+
+
+		}
+		.rightdiv-list{
+			color:#5a5b5b;
+			font-size: 16px;
+			font-family: 宋体;
+			line-height: 3;
+
+			margin:35px 10px 20px 50px;
+		}
+		.rightdiv-chapter-red{
+			background-color: #d45d5c;
+			width:260px;
+			height:160px;
+
+			position: absolute;
+			bottom: 0;
+			left:0;
+		}
+
+		.rightdiv-chapter-red span{
+			line-height: 160px;
+			color:#fff;
+			font-size: 110px;
+			font-family: 微软雅黑;
+
+			margin-left:14px;
+		}
+		.rightdiv-chapter-red-div{
+			position: absolute;
+			top:42px;
+			left:80px;
+
+			border-left:2px solid #fff;
+			height:86px;
+			width:170px;
+			padding:0px 8px;
+		}
+		.rightdiv-chapter-red-div h3{
+			font-size:21px;
+			color:#fff;
+			font-family: 黑体;
+			font-style:italic;
+
+		} 
+		.rightdiv-chapter-red-div p{
+
+			font-size:12px;
+			color:#fff;
+			font-family: 黑体;
+
+		}
+		.footer{
+			position: relative;
+			width:892px; 
+			height: 61px;
+			border-top:2px solid #938e8c;
+
+			bottom: 0px;
+		}
+		.footer span{
+
+			font-size: 12px;
+			font-family:黑体;
+			line-height: 1.5;
+
+
+			position: absolute;
+			right:0;
+			top:0;
+			color:#d45d5c;
+		}
+	</style>
+</head>
+<body>
+	<div class="warpper">
+		<div class="header">
+			<div class="headtitle">
+				<span>ife.baidu.com</span>
+			</div>
+			<span class="date">2016.03</span>
+		</div>
+		<div class="first">
+			<div class="first-pic">
+				<div class="leftmask mask"></div>
+				<div class="rightmask mask"></div>
+			</div>
+			<div class="first-article">
+				<span class="first-article-title">ABOUT</span><br>
+				<span class="first-article-title">TECHNOLOGE</span><br>
+				<p>About technologe about tecnologe about tecnolege</p>
+				<span class="numberone">700</span>
+				<span class="numbertwo">3.2</span>
+			</div>
+		</div>
+		<div class="second">
+			<ul>
+				<li>
+					<h5 class="what">what</h5>
+					<p>前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端端前端前端前端前端前端前端前端前端前端前端前端前端前端前端端前端前端前端前端前端前端前端前端前端前端前端前端前端前端</p>
+				</li>
+				<li>
+					<h5 class="when">what</h5>
+					<p>前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端端前端前端前端前端前端前端前端前端前端前端前端前端前端前端端前端前端前端前端前端前端前端前端前端前端前端前端前端前端</p>
+				</li>
+				<li>
+					<h5 class="how">what</h5>
+					<p>前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端端前端前端前端前端前端前端前端前端前端前端前端前端前端前端端前端前端前端前端前端前端前端前端前端前端前端前端前端前端</p>
+				</li>
+			</ul>
+		</div>
+		<div class="third">
+			<div class="leftdiv">
+				<h2 class="third-title"><em>THE</em>TECHNOLOGE OF FRONTb</h2>
+				<h3 class="third-title2">前端技术领域</h3>
+				<p class="third-p">
+					
+					<span class="third-p-font">前</span>前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端端前端前端前端前端前端前端前端前端前端前端前端前端前端前端端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端端前端前端前端前端前端前端前端前端前端前端前端前端前端前端端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端s前端前端前端前端前端前端前端前端前端前端前端前端前端前端端前端前端前端前端前端前端前端前端前端前端前端前端前端前端端前端前端前端前端前端前端前端前端前端前端前端前端前端前端
+				</p>
+				<img src="./pic/1.jpg">
+				<p style="text-indent: 2em">前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端端前端前端前端前端前端前端前端前端前端前端前端前端前端前端端前端前端前前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端端前端前端前端前端前端前端前端前端前端前端前端前端前端前端端前端前端前端前端前前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端端前端前端前端前端前端前前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端端前端前端前端前端前端前端前端前端前端前端前端前端前端前端端前端前端前端前端前前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端端前端前端前端前端前端前端前端前端前端前端前端前端前端前端端前端前端前端前端前前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端端前端前端前端前端前端前端前端前端前端前端前端前端前端前端端前端前端前端前端前前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端端前端前端前端前端前端前端前端前端端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端</p>
+			</div>
+			<div class="rightdiv">
+				<div class="rightdiv-imgdiv">
+					<div class="rightdiv-mask">
+						<h2>前端技术</h2>
+						<em>前端技术前端技术</em>
+					</div>
+				</div>
+				<div class="rightdiv-chapter">
+					<ul class="rightdiv-list">
+						<li>
+							端前端前端前端前端前端前端前端.......端前
+						</li>
+						<li>
+							端前端前端前端前端前端前端前端.......端前
+						</li>
+						<li>
+							端前端前端前端前端前端前端前端.......端前
+						</li>
+					</ul>
+					<p><span>“</span>
+					hello world hello world hello world hello world hello world hello world hello world hello world hello world <span>”</span>
+					</p>
+
+
+					<div class="rightdiv-chapter-red">
+						<span>0</span>
+						<div class="rightdiv-chapter-red-div">
+							<h3>ONE TWO</h3>
+							<h3>THREE FORE FIVE</h3>
+							<p>hello world hello world hello world </p>
+						</div>
+					</div>	
+				</div>
+			</div>
+		</div>
+		<div class="footer">
+			<span>ife.baidu.com</span>
+		</div>
+	</div>
+
+
+	<script type="text/javascript">
+		alert(document.getElementByClassName("warpper").length);
+	</script>
+</body>
+</html>
