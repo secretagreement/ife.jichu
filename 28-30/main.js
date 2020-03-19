@@ -36,7 +36,8 @@ function getLi(){
 function getUl(){
 	var li=getLi();
 	for(var i=0;i<=li.length-1;i++){
-		ul.appendChild(li[i]);
+		//ul.appendChild(li[i]);
+		ul.elementChild[i]=li[i];
 		// ul.children[i]=li[i];
 	}
 }
