@@ -12,8 +12,14 @@ input.oninput=function(){
 
 function getInput(){
 	var input=document.getElementById('email-input');
-	console.log(input.value);  console.log(input.value=="");
-	var first_email=input.value.trim();
+	if(input.value.indexOf('@')==-1){
+		var first_email=input.value.trim();
+	}else{
+		first_email=input.value.substring(0,input.value.indexOf('@')).trim();
+		var second_email=
+	}
+
+	
 	return first_email;
 }
 
@@ -36,8 +42,13 @@ function getLi(){
 function getUl(){
 	var li=getLi();
 	for(var i=0;i<=li.length-1;i++){
-		ul.appendChild(li[i]);
-		// ul.children[i]=li[i];
+		if(ul.children[i]){
+			//ul.children[i]=li[i];
+			ul.children[i].innerHTML=li[i].innerHTML;
+			//为啥上面的不行，下面的可以
+		}else{
+			ul.appendChild(li[i]);
+		}
 	}
 }
 
@@ -50,7 +61,6 @@ function display(){
 }
 
 function none(){
-	console.log('didi');
 	ul.style.display="none";
 }
 
