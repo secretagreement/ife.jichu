@@ -42,6 +42,7 @@ function getLi(){
 function getUl(){
 	var li=getLi();
 	for(var i=0;i<=li.length-1;i++){
+<<<<<<< HEAD
 		if(ul.children[i]){
 			//ul.children[i]=li[i];
 			ul.children[i].innerHTML=li[i].innerHTML;
@@ -49,6 +50,11 @@ function getUl(){
 		}else{
 			ul.appendChild(li[i]);
 		}
+=======
+		//ul.appendChild(li[i]);
+		ul.elementChild[i]=li[i];
+		// ul.children[i]=li[i];
+>>>>>>> 603cc493c0fab4af0e15bc5544d1d454e8d69dd5
 	}
 }
 
