@@ -2,6 +2,26 @@
 var input=document.getElementById('email-input');
 var ul=document.getElementById('email-sug-wrapper');
 
+var HtmlUtil={
+	htmlEncode:function(html){
+		var temp=document.createElement('div');
+		(temp.textContent!=undefined)?(temp.textContent=html):(temp.innerText=html);
+		var output=temp.innerHTML;
+		temp=null;
+		return output;
+	},
+	htmlDecode:function(text){
+		var temp=document.createElement('div');
+		temp.innerHTMl=text;
+		var output=temp.innerText||temp.textContent;
+		temp=null;
+		return output;
+	}
+
+};
+
+
+
 input.oninput=function(){
 	// getInput();
 	// getLi();
@@ -56,9 +76,6 @@ function getText(){
 		liText[j]=first_email.concat('@',second_email[j]);
 	}
 	
-
-
-	console.log(liText);
 	return liText;
 }
 
@@ -73,7 +90,6 @@ function getLi(){
 		// email=first_email.concat('@',postfixList[i]);
 		li[i].appendChild(document.createTextNode(liText[i]));
 	}
-	console.log(li);
 	return li;
 
 }
@@ -81,24 +97,60 @@ function getLi(){
 
 function getUl(){
 	var li=getLi();
+	var theLi;
 	ul.innerHTML="";
 	for(var i=0;i<=li.length-1;i++){
 		ul.appendChild(li[i]);
-			//ul.children[i]=li[i];
-			//ul.children[i].innerHTML=li[i].innerHTML;
-			//为啥上面的不行，下面的可以
-
-
-			
+		//ul.children[i]=li[i];
+		//ul.children[i].innerHTML=li[i].innerHTML;
+		//为啥上面的不行，下面的可以		
 
 		//ul.appendChild(li[i]);
 		//ul.elementChild[i]=li[i];
 		// ul.children[i]=li[i];
-
-
-
 	}
+
+
+	theLi=ul.children[0];
+	theLi.style.backgroundColor="#ddd";
+
+	
+
+
 }
+
+
+ul.onclick=chose;
+
+
+
+function chose(e){
+	var sourse=e.target||e.srcElement;
+	if(sourse.nodeName.toLowerCase()=='li'){
+		input.value=sourse.innerHTML;
+		console.log(HtmlUtil.htmlDecode(sourse.innerHTML));
+		ul.style.display='none';
+	}
+
+	document.onkeyup=function(e){
+		if(e.keyCode==13){
+			input.value=theLi.innerHTML;
+			ul.style.display='none';
+		}
+		if(e.keyCode==38){
+			theLi.style.backgroundColor="#fff";
+			theLi=(theLi==ul.children[0])?ul.children[ul.length-1]:ul.previousElementSibling;
+			theLi.style.backgroundColor='#ddd';
+		}
+		if(e.keyCode==40){
+			theLi.style.backgroundColor='#fff';
+			theLi=(theLi==ul.children[ul.length-1])?ul.children[0]:ul.nextElementSibling;
+			theLi.style.backgroundColor='#ddd';
+		}
+	}
+
+}
+
 
 function display(){
 	if(getInput()==""){
@@ -115,3 +167,8 @@ function none(){
 function block(){
 	ul.style.display="block";
 }
+
+
+
+
+
