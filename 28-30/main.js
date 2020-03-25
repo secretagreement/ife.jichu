@@ -1,6 +1,7 @@
 
 var input=document.getElementById('email-input');
 var ul=document.getElementById('email-sug-wrapper');
+var nowSelectTipIndex=0;
 
 var HtmlUtil={
 	htmlEncode:function(html){
@@ -21,14 +22,59 @@ var HtmlUtil={
 };
 
 
+window.onload=function(){
+	input.focus();
+}
 
-input.oninput=function(){
+
+// input.onkeydown=function(){
+// 	console.log('didi');
+// }
+
+input.onkeyup=function(event){//如果用onkeydown,inputvalue取不到实时的内容；
+	if(input.value==""){
+		ul.innerHTML="";
+		return;
+	}
+	if(event.keyCode=='27'){
+		input.select();//全选输入内容
+	}
+	if(event.keyCode!=13&event.keyCode!=38&event.keyCode!=40){
+		nowSelectTipIndex=0;
+		getUl();
+	}
+	if(event.keyCode==13){
+		input.value=ul.children[nowSelectTipIndex].innerHTML;
+		ul.innerHTML="";
+		// input.value=theLi.innerHTML;
+		// ul.style.display='none';
+	}
+	
 	// getInput();
 	// getLi();
-	getUl();
-	display();
+	// if(e.keyCode!==38&&e.keyCode!==40){
+	// 	nowSelectTipIndex=0;
+	// }
+	
+	if(event.keyCode==38){
+		nowSelectTipIndex=nowSelectTipIndex==0?ul.children.length-1:nowSelectTipIndex-1;
+		getUl();
+		// theLi.style.backgroundColor="#fff";
+		// theLi=(theLi==ul.children[0])?ul.children[ul.length-1]:ul.previousElementSibling;
+		// theLi.style.backgroundColor='#ddd';
+	}
+	if(event.keyCode==40){
+		nowSelectTipIndex=nowSelectTipIndex==ul.children.length-1?0:nowSelectTipIndex+1;
+		getUl();
+		// theLi.style.backgroundColor='#fff';
+		// theLi=(theLi==ul.children[ul.length-1])?ul.children[0]:ul.nextElementSibling;
+		// theLi.style.backgroundColor='#ddd';
+	}
+	
 
 }
+
+
 
 function getInput(){
 	var input=document.getElementById('email-input');
@@ -52,9 +98,6 @@ function getText(){
 		code=input_result.substring(input_result.indexOf('@')+1,input_result.length);
 	}
 
-
-
-
 	//@后面的内容
 	var postfixList=['163.com','gmail.com','126.com','qq.com','263.net'];
 	var second_email=[];
@@ -68,14 +111,11 @@ function getText(){
 		second_email=postfixList;//如果没有可以满足的,则每个后缀都要显示
 	}
 	
-
-
 	//连接@前面和后面的内容
 	var liText=new Array();
 	for(var j=0;j<=second_email.length-1;j++){
 		liText[j]=first_email.concat('@',second_email[j]);
 	}
-	
 	return liText;
 }
 
@@ -90,6 +130,7 @@ function getLi(){
 		// email=first_email.concat('@',postfixList[i]);
 		li[i].appendChild(document.createTextNode(liText[i]));
 	}
+	li[nowSelectTipIndex].style.backgroundColor='#ddd';
 	return li;
 
 }
@@ -97,8 +138,9 @@ function getLi(){
 
 function getUl(){
 	var li=getLi();
-	var theLi;
+	// var theLi;
 	ul.innerHTML="";
+	// li[nowSelectTipIndex].style.backgroundColor=""
 	for(var i=0;i<=li.length-1;i++){
 		ul.appendChild(li[i]);
 		//ul.children[i]=li[i];
@@ -109,14 +151,11 @@ function getUl(){
 		//ul.elementChild[i]=li[i];
 		// ul.children[i]=li[i];
 	}
+	// console.log(ul.children[nowSelectTipIndex]);
+	// ul.children[nowSelectTipIndex].style.backgroundColor="#ddd";
 
-
-	theLi=ul.children[0];
-	theLi.style.backgroundColor="#ddd";
-
-	
-
-
+	// theLi=ul.children[0];
+	// theLi.style.backgroundColor="#ddd";
 }
 
 
@@ -131,30 +170,14 @@ function chose(e){
 		console.log(HtmlUtil.htmlDecode(sourse.innerHTML));
 		ul.style.display='none';
 	}
-
-	document.onkeyup=function(e){
-		if(e.keyCode==13){
-			input.value=theLi.innerHTML;
-			ul.style.display='none';
-		}
-		if(e.keyCode==38){
-			theLi.style.backgroundColor="#fff";
-			theLi=(theLi==ul.children[0])?ul.children[ul.length-1]:ul.previousElementSibling;
-			theLi.style.backgroundColor='#ddd';
-		}
-		if(e.keyCode==40){
-			theLi.style.backgroundColor='#fff';
-			theLi=(theLi==ul.children[ul.length-1])?ul.children[0]:ul.nextElementSibling;
-			theLi.style.backgroundColor='#ddd';
-		}
-	}
+	input.focus();
 
 }
 
 
 function display(){
 	if(getInput()==""){
-		none();
+		return;
 	}else {
 		block();
 	}
@@ -172,3 +195,23 @@ function block(){
 
 
 
+// function(e){
+// 	if(e.keyCode==13){
+// 		input.value=ul.children[nowSelectTipIndex];
+// 		ul.style.display="none";
+// 		// input.value=theLi.innerHTML;
+// 		// ul.style.display='none';
+// 	}
+// 	if(e.keyCode==38){
+// 		nowSelectTipIndex=nowSelectTipIndex==0?ul.children.length-1:nowSelectTipIndex-1;
+// 		// theLi.style.backgroundColor="#fff";
+// 		// theLi=(theLi==ul.children[0])?ul.children[ul.length-1]:ul.previousElementSibling;
+// 		// theLi.style.backgroundColor='#ddd';
+// 	}
+// 	if(e.keyCode==40){
+// 		nowSelectTipIndex=nowSelectTipIndex==ul.children.length-1?0:nowSelectTipIndex+1;
+// 		// theLi.style.backgroundColor='#fff';
+// 		// theLi=(theLi==ul.children[ul.length-1])?ul.children[0]:ul.nextElementSibling;
+// 		// theLi.style.backgroundColor='#ddd';
+// 	}
+// }
