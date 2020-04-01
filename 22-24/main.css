@@ -1,0 +1,23 @@
+html{
+	font-size:57.5px;
+}
+
+body{
+	max-width: 6.4rem;
+}
+
+#hani-btn{
+	animation-name:fadeOut;
+	animation-duration:5s;
+	animation-timing-function:linear;
+	animation-delay:0s;
+	animation-play-state: paused;/*paused*/
+}
+
+@keyframes fadeOut{
+	0%{opacity: 0;}
+	25%{opacity:0.25;}
+	50%{opacity:0.5;}
+	75%{opacity:0.75;}
+	100%{opacity:1;}
+}
