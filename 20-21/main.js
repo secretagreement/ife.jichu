@@ -137,5 +137,5 @@ function animation(){
 
 // setInterval(console.log("sadfsad"),95);
 
-animation();
+// animation();
 
