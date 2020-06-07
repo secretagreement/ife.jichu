@@ -187,3 +187,6 @@ timesWord_btn.onclick=function(){
 
 
 
+addEventListener('click',function(){
+
+})

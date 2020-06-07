@@ -60,15 +60,52 @@ function second(){
 }
 
 
-
-function tiemsWord(){
-	let timesWord='';
-	for(var i=1;i<=9;i++){
-		for(var j=1;j<=i;j++){
-			timesWord+=i+'*'+j+'='+i*j;
+$('#three-btn').on('click',function(){
+	for(let i=0;i<=100;i++){
+		if(i%3===0||String(i).indexOf("3")!==-1){
+			console.log('pa');
+		}else {
+			console.log(i);
 		}
-		timesWord+='\n';
 	}
-	console.log(timesWord);
+})
+
+
+
+function timesWord(){
+	// let timesWord='';
+	// for(var i=1;i<=9;i++){
+	// 	for(var j=1;j<=i;j++){
+	// 		timesWord+=i+'*'+j+'='+i*j;
+	// 	}
+	// 	timesWord+='\n';
+	// }
+	// console.log(timesWord);
+
+
+	console.log('ss');
+
+	let table=$('<tabel>sdfasf</tabel>');
+	let trList=[];
+	let tdList=[];
+	let test="";
+	for(let i=1;i<=9;i++){
+		trList[i]=$('<tr></tr>');
+		for(var j=1;j<=i;j++){
+			tdList[j]=$('<td></td>');
+			test=i+"*"+j+"="+i*j;
+			tdList[j].append(test);
+			trList[i].append(tdList[j]);
+		}
+		table.append(trList[i]);
+	}
+
+	console.log(table);
+
+	$('body').append(table);
+
+
 }
+
+
 
